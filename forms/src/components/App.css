@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@200&display=swap');
+
+
+.pic-sec{
+  background-image: url('../plane.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.hub{
+  background-color: rgba(179, 177, 177, 0.171);
+  background-color: rgba(237, 236, 240, 0.918);
+  height:100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  
+
+}
+.row{
+  background-color: white;
+  border-radius: 15px
+}
+#form-3{
+ min-width:800px;
+ max-width:200px
+  
+}
+label{
+  font-size: 15px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;  
+
+
+}
+
+.container{
+  box-shadow: 10px 10px 50px rgba(136, 226, 109, 0.233); 
+  
+}
+
+
+
+
+
+.col-2 h4{
+  color: #112213;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 25px;
+  font-family: 'Poppins', sans-serif;  
+
+}
+.col-sign-2 .btn,.col-login-2 .btn{
+  background-color: #0B5716;
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;  
+  border-radius: 5px;
+  height: 40px; 
+  
+
+}
+
+
+
+.container img{
+  margin-top: 10px;
+  margin-left: 20px;
+
+}
