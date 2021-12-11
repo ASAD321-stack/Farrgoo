@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Navbar } from 'react-bootstrap';
-// import './login.css';
+import './login.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import HomePage from "./home"
 
@@ -79,9 +79,9 @@ const RideDetails = () => {
             <HomePage />
 
             <div className="d-flex justify-content-center align align-content-md-center h-100">
-                <div className="card" style={{"width":"500px"}}>
+                <div className="card card-upload" style={{"width":"400px"}}>
                     <div className="card-header">
-                        <h2>Flight Details</h2>
+                        <h2 >Add Flight Details</h2>
                     </div>
                     <div className="card-body">
                         <form method="POST">
