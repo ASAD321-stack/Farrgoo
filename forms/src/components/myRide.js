@@ -43,6 +43,7 @@ const MyRide = () => {
     return (
         <div className="App">
             <HomePage />
+            <h1>Your Posted Flights</h1>
             {ads.map((item) =>
                 <div key={item.id}>
                     <div className=" card p-2">

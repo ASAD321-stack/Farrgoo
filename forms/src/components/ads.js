@@ -44,6 +44,7 @@ const Ads = () => {
     return (
         <div>
             <HomePage />
+            <div className="search">
             <div className="searchbar">
                 <input type="text" placeholder="Departure"
                     onChange={event => { setSearch(event.target.value) }}
@@ -53,6 +54,7 @@ const Ads = () => {
                 <input type="text" placeholder="Destination"
                     onChange={event => { setSearcha(event.target.value) }}
                 />
+            </div>
             </div>
 
 
@@ -70,7 +72,7 @@ const Ads = () => {
                             <div key={element.id}>
                                 <div className="card p-2">
                                     <div className="ml-3 w-100">
-                                        <h4 className="mb-0 mt-0">{element.userName}</h4>
+                                        <h3 className="mb-0 mt-0 ">{element.userName.toUpperCase()}</h3>
                                         <div className="back">
                                             <section class="services" id="services">
                                                 <div className="box row">
@@ -89,7 +91,7 @@ const Ads = () => {
                                                         <h5>Charges : <span>{element.charges}</span></h5>
                                                         {/* <h5>Destination : <span>{d.destination}</span></h5> */}
                                                     </div>
-                                                    <div className="button mt-2 d-flex flex-row align-items-center"><button className="btn btn-sm btn-success w-100 ml-2">Request</button> </div>
+                                                    <div className="button mt-2 d-flex flex-row align-items-center"><button className="btn btn-sm btn-success w-100 ml-3">Request</button> </div>
 
 
                                                 </div>
