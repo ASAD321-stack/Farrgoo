@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Table } from 'react-bootstrap';
+// import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import HomePage from "./home"
 //import { keys } from "@material-ui/core/styles/createBreakpoints";
@@ -9,8 +9,8 @@ import "./service.css"
 const MyRide = () => {
     const navigate = useNavigate();
     const [ads, getAds] = useState([]);
-    const [search, setSearch] = useState('');
-    const [searcha, setSearcha] = useState('');
+    // const [search, setSearch] = useState('');
+    // const [searcha, setSearcha] = useState('');
     const getUser = async () => {
         try {
             const response = await fetch('/myRide', {
@@ -39,7 +39,7 @@ const MyRide = () => {
     }
     useEffect(() => {
         getUser();
-    }, []);
+    },[]);
     return (
         <div className="App">
             <HomePage />

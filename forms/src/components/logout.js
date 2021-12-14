@@ -13,7 +13,6 @@ const Logout = () => {
              },
                  credentials:"include"
              });
-             const data = await res.body;
              if(res.status!== 200)
              {
                navigate('/login');

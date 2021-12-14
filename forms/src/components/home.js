@@ -48,7 +48,7 @@ const HomePage = () => {
     return (
         <div className="header">
             <Navbar className="navbar navbar-expand-lg navbar-dark bg-success">
-                <Navbar.Brand className="navbar-brand" href="#home">Fargoo</Navbar.Brand>
+                <Navbar.Brand className="navbar-brand" href="#home">FarGoo </Navbar.Brand>
                 <div className="d-flex justify-content-left links">
                    <Link  className="btn" style={{"color":"white"}} to="/ads">Ads</Link>
                 </div>

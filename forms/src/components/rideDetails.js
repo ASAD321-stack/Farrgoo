@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { Navbar } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
+// import { Navbar } from 'react-bootstrap';
 import './login.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import HomePage from "./home"
@@ -79,7 +79,7 @@ const RideDetails = () => {
             <HomePage />
 
             <div className="d-flex justify-content-center align align-content-md-center h-100">
-                <div className="card card-upload" style={{"width":"400px"}}>
+                <div className="card card-upload" style={{ "width": "400px" }}>
                     <div className="card-header">
                         <h2 >Add Flight Details</h2>
                     </div>
@@ -90,7 +90,7 @@ const RideDetails = () => {
                                     <div className="input-group-prepend">
                                         {/* <span className="input-group-text"><PersonIcon /></span> */}
                                     </div>
-                                    <input type="text" name="userName" id="userName" className="form-control" placeholder="username"
+                                    <input type="text" name="userName" id="userName" className="form-control" placeholder="username" required
                                         value={user.userName}
                                         onChange={handleInputs}>
                                     </input>
@@ -102,10 +102,20 @@ const RideDetails = () => {
                                     <div className="input-group-prepend">
                                         {/* <span className="input-group-text"><PersonIcon /></span> */}
                                     </div>
-                                    <input type="text" name="departure" id="departure" className="form-control" placeholder="Departure"
+                                    {/* <input type="text" name="departure" id="departure" className="form-control" placeholder="Departure" required
                                         value={user.departure}
                                         onChange={handleInputs}>
-                                    </input>
+                                    </input> */}
+                                    <select name = "departure"   placeholder="Departure" value={user.departure} onChange={handleInputs}>
+                                        <option value="Pakistan">Pakistan</option>
+                                        <option value="India">India</option>
+                                        <option value="America">America</option>
+                                        <option value="Spain">Spain</option>
+                                        <option value="Dubai">Dubai</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="Afganistan">Afganistan</option>
+                                        {/* <option value="Spain">Spain</option> */}
+                                    </select>
                                 </div>
                             </div>
 
@@ -115,10 +125,20 @@ const RideDetails = () => {
                                     <div className="input-group-prepend">
                                         {/* <span className="input-group-text"><VpnKeyIcon /></span> */}
                                     </div>
-                                    <input type="text" name="destination" id="destination" className="form-control"
+                                    {/* <input type="text" name="destination" id="destination" className="form-control" required
                                         value={user.destination}
                                         onChange={handleInputs}
-                                        placeholder="Destination"></input>
+                                        placeholder="Destination"></input> */}
+                                    <select  name="destination"  id="destination" value={user.destination} onChange={handleInputs}>
+                                        <option value="Pakistan">Pakistan</option>
+                                        <option value="India">India</option>
+                                        <option value="America">America</option>
+                                        <option value="Spain">Spain</option>
+                                        <option value="Dubai">Dubai</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="Afganistan">Afganistan</option>
+                                        {/* <option value="Spain">Spain</option> */}
+                                    </select>
                                 </div>
                             </div>
                             <div className="feilds">
@@ -126,7 +146,7 @@ const RideDetails = () => {
                                     <div className="input-group-prepend">
                                         {/* <span className="input-group-text"><VpnKeyIcon /></span> */}
                                     </div>
-                                    <input type="date" name="date" id="date" className="form-control"
+                                    <input type="date" name="date" id="date" className="form-control" required
                                         value={user.date}
                                         onChange={handleInputs}
                                         placeholder="date"></input>
@@ -137,7 +157,7 @@ const RideDetails = () => {
                                     <div className="input-group-prepend">
                                         {/* <span className="input-group-text"><PhoneIcon /></span> */}
                                     </div>
-                                    <input type="time" name="time" id="time" className="form-control"
+                                    <input type="time" name="time" id="time" className="form-control" required
                                         value={user.time}
                                         onChange={handleInputs}
                                         placeholder="Enter Phone Number"></input>
@@ -148,7 +168,7 @@ const RideDetails = () => {
                                     <div className="input-group-prepend">
                                         {/* <span className="input-group-text"><PhoneIcon /></span> */}
                                     </div>
-                                    <input type="Number" name="number" id="number" className="form-control"
+                                    <input type="Number" name="number" id="number" className="form-control" required
                                         value={user.number}
                                         onChange={handleInputs}
                                         placeholder="Enter Phone Number"></input>
@@ -159,7 +179,7 @@ const RideDetails = () => {
                                     <div className="input-group-prepend">
                                         {/* <span className="input-group-text"><PhoneIcon /></span> */}
                                     </div>
-                                    <input type="text" name="registration" id="registration" className="form-control"
+                                    <input type="text" name="registration" id="registration" className="form-control" required
                                         value={user.registration}
                                         onChange={handleInputs}
                                         placeholder="registration Number"></input>
@@ -170,7 +190,7 @@ const RideDetails = () => {
                                     <div className="input-group-prepend">
                                         {/* <span className="input-group-text"><PhoneIcon /></span> */}
                                     </div>
-                                    <input type="text" name="meetupPoint" id="meetupPoint" className="form-control"
+                                    <input type="text" name="meetupPoint" id="meetupPoint" className="form-control" required
                                         value={user.meetupPoint}
                                         onChange={handleInputs}
                                         placeholder="Enter the Meetup Point"></input>
@@ -182,6 +202,7 @@ const RideDetails = () => {
                                         {/* <span className="input-group-text"><PhoneIcon /></span> */}
                                     </div>
                                     <input type="text" name="charges" id="charges" className="form-control"
+                                        required
                                         value={user.charges}
                                         onChange={handleInputs}
                                         placeholder="Enter the Charges"></input>
