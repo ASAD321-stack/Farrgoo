@@ -87,26 +87,25 @@ const RideDetails = () => {
                         <form method="POST">
                             <div className="feilds">
                                 <div className="input-group form-group">
-                                    <div className="input-group-prepend">
-                                        {/* <span className="input-group-text"><PersonIcon /></span> */}
-                                    </div>
+                                   
                                     <input type="text" name="userName" id="userName" className="form-control" placeholder="username" required
                                         value={user.userName}
                                         onChange={handleInputs}>
                                     </input>
+
+                               
                                 </div>
                             </div>
 
                             <div className="feilds">
                                 <div className="input-group form-group">
-                                    <div className="input-group-prepend">
-                                        {/* <span className="input-group-text"><PersonIcon /></span> */}
-                                    </div>
+                               
                                     {/* <input type="text" name="departure" id="departure" className="form-control" placeholder="Departure" required
                                         value={user.departure}
                                         onChange={handleInputs}>
                                     </input> */}
-                                    <select name = "departure"   placeholder="Departure" value={user.departure} onChange={handleInputs}>
+                                    <select name = "departure"  className="form-control"  placeholder="Departure" value={user.departure} onChange={handleInputs}>
+                                        <option value="">From</option>
                                         <option value="Pakistan">Pakistan</option>
                                         <option value="India">India</option>
                                         <option value="America">America</option>
@@ -129,7 +128,8 @@ const RideDetails = () => {
                                         value={user.destination}
                                         onChange={handleInputs}
                                         placeholder="Destination"></input> */}
-                                    <select  name="destination"  id="destination" value={user.destination} onChange={handleInputs}>
+                                  <select  name="destination" placeholder="destination" className="form-control" id="destination" value={user.destination} onChange={handleInputs}>
+                                        <option value="">To</option>
                                         <option value="Pakistan">Pakistan</option>
                                         <option value="India">India</option>
                                         <option value="America">America</option>
@@ -146,7 +146,7 @@ const RideDetails = () => {
                                     <div className="input-group-prepend">
                                         {/* <span className="input-group-text"><VpnKeyIcon /></span> */}
                                     </div>
-                                    <input type="date" name="date" id="date" className="form-control" required
+                                    <input type="date" name="date"  id="date" className="form-control" required
                                         value={user.date}
                                         onChange={handleInputs}
                                         placeholder="date"></input>
@@ -160,7 +160,7 @@ const RideDetails = () => {
                                     <input type="time" name="time" id="time" className="form-control" required
                                         value={user.time}
                                         onChange={handleInputs}
-                                        placeholder="Enter Phone Number"></input>
+                                        placeholder="Meeting time"></input>
                                 </div>
                             </div>
                             <div className="feilds">

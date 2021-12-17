@@ -29,10 +29,10 @@ const Login = () => {
 		console.log(data);
 
 		if (res.status === 400 || !data) {
-			window.alert("Invalid Credentials");
+		  console.log("Invalid Credentials");
 		}
 		else {
-			window.alert("login SuccessFully");
+			console.log("login SuccessFully");
 			navigate('/');
 		}
 	}
@@ -60,7 +60,7 @@ const Login = () => {
 										value={email}
 										onChange={(e) => setEmail(e.target.value)}
 										placeholder="email"
-										require></input>
+										required></input>
 								</div>
 								<div className="form-group">
 									<label for="password">Password</label>
@@ -68,7 +68,7 @@ const Login = () => {
 										value={password}
 										onChange={(e) => setPassword(e.target.value)}
 										placeholder="password"
-										require></input>
+										required></input>
 								</div>
 								<div className="feilds">
 									<div className="form-group">

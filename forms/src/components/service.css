@@ -6,9 +6,10 @@
   background-color: rgba(166, 233, 164, 0.315);
   /* flex: 0 0 calc(33.33% - 20px); */
   margin-bottom: 30px;
-  max-width: 70%;
+  max-width: 60%;
   margin:0 auto;
   border-radius: 5px;
+ 
   padding: 30px;
   position: relative;
   font-family: 'Poppins', sans-serif;  
@@ -67,5 +68,10 @@
   line-height: 24px;
   color: #838383;
   margin: 5px 0 10px;
+
+}
+
+.card{
+  border:none
 
 }

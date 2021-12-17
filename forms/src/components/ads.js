@@ -49,8 +49,7 @@ const Ads = () => {
                 <input type="text" placeholder="Departure"
                     onChange={event => { setSearch(event.target.value) }}
                 />
-            </div>
-            <div className="searchbar">
+            
                 <input type="text" placeholder="Destination"
                     onChange={event => { setSearcha(event.target.value) }}
                 />
@@ -70,13 +69,13 @@ const Ads = () => {
                     }).map((element) => {
                         return (
                             <div key={element.id}>
-                                <div className="card p-2">
+                                <div className="card p-3">
                                     <div className="ml-3 w-100">
                                         <h3 className="mb-0 mt-0 ">{element.userName.toUpperCase()}</h3>
                                         <div className="back">
                                             <section class="services" id="services">
-                                                <div className="box row">
-                                                    <div className="col-md-4">
+                                                <div className="box row ">
+                                                    <div className="col-md-4 ">
                                                         <h5>Departure:<span>{element.departure}</span></h5>
                                                         <h5>Destination:<span>{element.destination}</span></h5>
                                                         <h5>Arrival Date:<span>{element.date}</span></h5>

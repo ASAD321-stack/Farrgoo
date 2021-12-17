@@ -229,6 +229,28 @@ router.get('/myRide',authenticate,async (req,res)=>{
   }
 });
 
+// router.route('/:id').delete((req, res) => {
+//   Ride.findByIdAndDelete(req.params.id)
+//       .then(() => res.json("exercise deleted"))
+//       .catch(err => res.status(400).json('Error: ' + err));
+// });
+
+// router.delete('/myRide',authenticate,async (req,res)=>{ 
+//   console.log('-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=--==-=----------------- myRide');
+//   try{
+//     const loginData = await req['rootUser'].id;
+//     const userData = await req['rootUser'].name;
+//     console.log(userData);
+//      const driverData = await Ride.findByIdAndDelete({loginId:loginData});
+//      console.log(driverData)
+//      res.send(driverData);
+     
+//   }catch(e)
+//   {
+//        res.send(e);
+//   }
+// });
+
 router.get('/home',authenticate,async(req,res)=> {
   try {
     console.log('-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=--==-=----------------- hello');

@@ -37,9 +37,36 @@ const MyRide = () => {
             navigate('/login');
         }
     }
+
+    // const deleteUser = async () => {
+    //     try {
+    //         const response = await fetch('/myRide', {
+    //             method: "POST",
+    //             headers: {
+    //                 Accept: "application/json",
+    //                 "Content-Type": "application/json"
+    //             },
+    //             credentials: "include"
+    //         });
+
+
+    //         const data = await response.json();
+    //         // console.log("=============ads");
+    //         // console.log(data);
+    //         getAds(data);
+
+    //         if (!response.status === 200) {
+    //             const error = new Error(response.error);
+    //             throw error;
+    //         }
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // }
+
     useEffect(() => {
         getUser();
-    },[]);
+    }, []);
     return (
         <div className="App">
             <HomePage />
@@ -48,40 +75,55 @@ const MyRide = () => {
                 <div key={item.id}>
                     <div className=" card p-2">
                         {/* <div className="d-flex align-items-center"> */}
-                            {/* <div className="ml-3 w-100"> */}
-                                <h4 className="mb-0 mt-0">{item.loginName}</h4>
-                                <div>{item.detials.map((d) =>
+                        {/* <div className="ml-3 w-100"> */}
+                        {/* <h4 className=" btn-success mb-0 mt-0">{item.loginName}</h4> */}
+                        <div>{item.detials.map((d) =>
 
-                                    <div className="back">
-                                        <section class="services" id="services">
-                                                <div className="box row">
-                                                 <div className="col-md-4">
-                                                    <h5>Departure:<span>{d.departure}</span></h5>
-                                                    <h5>Destination:<span>{d.destination}</span></h5>
-                                                    <h5>Arrival Date:<span>{d.date}</span></h5>
-                                                </div>
-                                                <div className="col-md-4">
-                                                    <h5>Contact Number : <span>{d.number}</span></h5>
-                                                    <h5>MeetupPoint :<span>{d.meetupPoint}</span></h5>
-                                                    <h5>Registration: <span>{d.registration}</span></h5>
-                                                </div>
-                                                <div className="col-md-4">
-                                                    <h5>MeetingTime : <span>{d.time}</span></h5>
-                                                    <h5>Charges : <span>{d.charges}</span></h5>
-                                                    {/* <h5>Destination : <span>{d.destination}</span></h5> */}
-                                                </div>
-
-                                                </div>
-                                                
-                                        </section>
-
+                            <div className="back">
+                                <section class="services" id="services">
+                                    <div className="box row">
+                                        <div className="col-md-4">
+                                            <h5>Departure:<span>{d.departure}</span></h5>
+                                            <h5>Destination:<span>{d.destination}</span></h5>
+                                            <h5>Arrival Date:<span>{d.date}</span></h5>
+                                        </div>
+                                        <div className="col-md-4">
+                                            <h5>Contact Number : <span>{d.number}</span></h5>
+                                            <h5>MeetupPoint :<span>{d.meetupPoint}</span></h5>
+                                            <h5>Registration: <span>{d.registration}</span></h5>
+                                        </div>
+                                        <div className="col-md-4">
+                                            <h5>MeetingTime : <span>{d.time}</span></h5>
+                                            <h5>Charges : <span>{d.charges}</span></h5>
+                                            {/* <h5>Destination : <span>{d.destination}</span></h5> */}
+                                        </div>
+                                        <div className="feilds">
+                                            <div className="form-group d-flex justify-content-end" >
+                                                <input type="submit" style={{"marginLeft":"100px" ,"backgroundColor":"#FF3333"}} value="Delete"
+                                                    // onClick={deleteUser}
+                                                    className="btn btn-sm btn-danger login_btn"></input>
+                                                     <input type="submit" style={{"marginLeft":"10px","border":"none", "backgroundColor":"#04AA6D"}} value="Edit"
+                                                    // onClick={EditUser}
+                                                    className="btn  btn-success  login_btn"></input>
+                                            </div>
+                                          
+                                        </div>
+                                       
+                                      
+                                      
 
                                     </div>
+                             
 
-                                )}</div>
+                                </section>
 
 
-                            {/* </div> */}
+                            </div>
+
+                        )}</div>
+
+
+                        {/* </div> */}
                         {/* </div> */}
                     </div>
                 </div>
