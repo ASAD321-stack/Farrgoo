@@ -2,7 +2,8 @@ import React, { useState } from "react"
 import { useNavigate,Link } from 'react-router-dom';
 
 
-// import './css/App.css';
+import './login-.css';
+
 
 const Signup = () => {
 
@@ -48,7 +49,7 @@ const Signup = () => {
     <div className="hub">
       <section id="form-3" >
         <div className="container">
-          <div className="row">
+          <div className=" row signuprow">
 
             <div className="col-md-7 pic-sec">
 

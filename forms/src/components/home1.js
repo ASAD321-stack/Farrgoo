@@ -1,6 +1,6 @@
 import React from 'react'
 import HomePage from '../components/home'
-// import "../component1/STYLES.css"
+import "./STYLES.css"
 const Home1 = () => {
     return (
 
@@ -8,7 +8,7 @@ const Home1 = () => {
             <HomePage />
             <section className="aboutme">
                 <div>
-                    <div className="row " style={{ "backgroundColor": "white" }}>
+                    <div className="row" style={{ "backgroundColor": "white" }}>
                         <div className=" col-lg-6  col-sm-12 ">
                             <p className="para">Hello there. . .</p>
                             <h1 className="banner-h">
@@ -28,7 +28,7 @@ const Home1 = () => {
             </section>
             <section>
                 <div >
-                    <div className="row">
+                    <div className="row home-row">
                         <div className="col-lg-6 col-about-1">
                             <h1 className="header">
                                 ABOUT US
@@ -74,7 +74,7 @@ const Home1 = () => {
                     </h1>
                     <p className="para-3"> App that makes your life easier </p>
                     <div className="row ro1 service-content">
-                        <div className="col-lg-6">
+                        <div className="col-lg-4">
                             <div className="box1">
                                 <h5>Travelling</h5>
                                 <p>Make your Travelling easy and make you earn money out of it.
@@ -83,7 +83,7 @@ const Home1 = () => {
                             </div>
 
                         </div>
-                        <div className="col-lg-6">
+                        <div className="col-lg-8">
 
                             <div className="box1">
 
@@ -95,7 +95,7 @@ const Home1 = () => {
                             </div>
 
                         </div>
-                        <div className="col-lg-6">
+                        <div className="col-lg-8">
                             <div className="box1">
                                 <h5>Saves time</h5>
                                 <p> This app helps you to get packages in shortest time span
@@ -104,7 +104,7 @@ const Home1 = () => {
                             </div>
 
                         </div>
-                        <div className="col-lg-6">
+                        <div className="col-lg-4">
                             <div className="box1">
                                 <h5>Saves time</h5>
                                 <p> This app helps you to get packages in shortest time span
@@ -113,6 +113,7 @@ const Home1 = () => {
                             </div>
 
                         </div>
+                       
 
 
 
@@ -123,7 +124,7 @@ const Home1 = () => {
             </section>
             <footer id="footer">
                 <div className="container2">
-                    <div className="row">
+                    <div className="row home-row">
                         <div className="col-md-8">
                             <div className="row">
                                 <div className="col-md-3" >
@@ -175,7 +176,7 @@ const Home1 = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="row ">
+                    <div className="row home-row">
                         <div className="col-md-8 ">
                             <p className="footer-p">Copy right <span>&copy</span> 2021 All rights reserved | This is <span>&hearts;</span> by
                                 <span style={{ "color": "green" }}> farrgo</span></p>

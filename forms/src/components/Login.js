@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { Navbar, Dropdown } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
-import './App.css';
+import './login-.css';
 
 
 const Login = () => {
@@ -43,7 +43,7 @@ const Login = () => {
 		<div className="hub">
 			<section id="form-3">
 				<div className="container ">
-					<div className="row">
+					<div className="row login-row">
 
 						<div className="col-md-6 col-sm-12 pic-sec">
 
