@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 // import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import HomePage from "./home"
+import axios from "axios"
 //import { keys } from "@material-ui/core/styles/createBreakpoints";
 
 import "./service.css"
@@ -38,35 +39,23 @@ const MyRide = () => {
         }
     }
 
-    // const deleteUser = async () => {
-    //     try {
-    //         const response = await fetch('/myRide', {
-    //             method: "POST",
-    //             headers: {
-    //                 Accept: "application/json",
-    //                 "Content-Type": "application/json"
-    //             },
-    //             credentials: "include"
-    //         });
+    const deleteRide = async (id) => {
+        axios.delete(`/delete/${id}`).then(() => {
+            getUser(
+                ads.filter((item) => {
+                    return item._id !== id;
+                })
+            )
+        })
 
-
-    //         const data = await response.json();
-    //         // console.log("=============ads");
-    //         // console.log(data);
-    //         getAds(data);
-
-    //         if (!response.status === 200) {
-    //             const error = new Error(response.error);
-    //             throw error;
-    //         }
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // }
+    }
 
     useEffect(() => {
         getUser();
-    }, []);
+        deleteRide();
+    },[]);
+
+
     return (
         <div className="App">
             <HomePage />
@@ -97,26 +86,19 @@ const MyRide = () => {
                                             <h5>Charges : <span>{d.charges}</span></h5>
                                             {/* <h5>Destination : <span>{d.destination}</span></h5> */}
                                         </div>
-                                        <div className="feilds">
-                                            <div className="form-group d-flex justify-content-end" >
-                                                <input type="submit" style={{"marginLeft":"100px" ,"backgroundColor":"#FF3333"}} value="Delete"
-                                                    // onClick={deleteUser}
-                                                    className="btn btn-sm btn-danger login_btn"></input>
-                                                     <input type="submit" style={{"marginLeft":"10px","border":"none", "backgroundColor":"#04AA6D"}} value="Edit"
-                                                    // onClick={EditUser}
-                                                    className="btn  btn-success  login_btn"></input>
-                                            </div>
-                                          
-                                        </div>
-                                       
-                                      
-                                      
+                                        <div className="button align-items-center"><button className="btn btn-sm btn-success w-100 ml-2"
+                                            onClick={() => {
+                                                deleteRide(item._id);
+                                            }}
+                                             >Delete</button> </div>
+
+
+
 
                                     </div>
-                             
+
 
                                 </section>
-
 
                             </div>
 

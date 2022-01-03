@@ -78,8 +78,8 @@ const RideDetails = () => {
         <div className="header">
             <HomePage />
 
-            <div className="d-flex justify-content-center align align-content-md-center h-100">
-                <div className="card card-upload" style={{ "width": "400px" }}>
+            <div className=" body d-flex justify-content-center  align-content-center h-100">
+                <div className="card card-upload" >
                     <div className="card-header">
                         <h2 >Add Flight Details</h2>
                     </div>

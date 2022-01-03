@@ -1,6 +1,11 @@
-  .header{
+  .body{
     background-image: url('../upload.jpg');
-    background-size: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+  
+
+
   }
  .navbar-brand{
     font-family: "Maven Pro" , sans-serif;
@@ -11,9 +16,11 @@
 
 .card-upload{
 margin-top: 3%;
-margin-bottom: auto;
+margin-bottom: 3%;
 background-color: rgba(0, 0, 0, 0.233) !important;
 font-family: 'Poppins', sans-serif;  
+width: 30% !important;
+
 
 }
 h2{
@@ -78,4 +85,5 @@ background-color: white;
 } */
 .feilds{
     padding: 8px;
+   
 } 

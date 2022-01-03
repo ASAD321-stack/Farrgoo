@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 //import { keys } from "@material-ui/core/styles/createBreakpoints";
+// import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import HomePage from "./home";
 import "./search.css"
 
@@ -76,7 +77,7 @@ const Ads = () => {
                                             <section class="services" id="services">
                                                 <div className="box row ">
                                                     <div className="col-md-4 ">
-                                                        <h5>Departure:<span>{element.departure}</span></h5>
+                                                        <h5><span>{element.departure}</span></h5>
                                                         <h5>Destination:<span>{element.destination}</span></h5>
                                                         <h5>Arrival Date:<span>{element.date}</span></h5>
                                                     </div>

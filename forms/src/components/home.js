@@ -46,7 +46,7 @@ const HomePage = () => {
     }, []);
 
     return (
-        <div className="header">
+        <div>
      
             <nav style={{ "height": "70px" }} class="navbar navbar-expand-lg navbar-light ">
                 <Link className="navbar-brand"  style={{ "color": "white" ,"fontSize":"30px"}} to="/">Faargo!</Link>
@@ -73,6 +73,7 @@ const HomePage = () => {
                     </ul>
                 </div>
             </nav>
+            
 
         </div>
     );

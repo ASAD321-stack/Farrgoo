@@ -135,8 +135,7 @@ router.post('/login', async (req, res) => {
       //        res.json({message: "done successfully"})
       //    }
 
-
-      if (userLogin) {
+if (userLogin) {
 
           const isMatch = await bcrypt.compare(password, userLogin.password);
            token = await userLogin.generateAuthToken();
@@ -229,28 +228,58 @@ router.get('/myRide',authenticate,async (req,res)=>{
   }
 });
 
-// router.route('/:id').delete((req, res) => {
+// router.route('/delete/:id').delete((req, res) => {
+//   console.log("hello from inside")
 //   Ride.findByIdAndDelete(req.params.id)
-//       .then(() => res.json("exercise deleted"))
+//       .then(() => res.json("Data deleted"))
 //       .catch(err => res.status(400).json('Error: ' + err));
+
 // });
 
-// router.delete('/myRide',authenticate,async (req,res)=>{ 
-//   console.log('-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=--==-=----------------- myRide');
-//   try{
-//     const loginData = await req['rootUser'].id;
-//     const userData = await req['rootUser'].name;
-//     console.log(userData);
-//      const driverData = await Ride.findByIdAndDelete({loginId:loginData});
-//      console.log(driverData)
-//      res.send(driverData);
-     
-//   }catch(e)
-//   {
-//        res.send(e);
-//   }
-// });
+// router.route('/update/:id').patch((req, res) => {
+//    Ride.findById(req.params.id)
+//       .then(user => {
+//           user.userName = req.body.userName;
+//           user.departure=req.body.departure;
+//           user.description = req.body.description;
+//           user.destination = req.body.destination;
+//           user.date = req.body.date;
+//           user.time = req.body.time;
+//           user.number=req.body.number;
+//           user.meetupPoint=req.body.meetupPoint;
+//           user.charges=req.body.charges;
+//           user.registration=req.body.registration;
 
+
+//           user.save()
+//               .then(() => res.json("user updated"))
+//               .catch(err => res.status(400).json('Error: ' + err));
+//       })
+//       .catch(err => res.status(400).json('Error: ' + err));
+// })
+
+router.delete('/delete/:id', async(req,res) => {
+  console.log("adaf")
+  const id = req.params.id
+  console.log(id);
+  //await Driver.findByIdAndDelete(id)
+  await Ride.findByIdAndDelete(id).then(user =>{
+    if(user)
+    {
+      return res.status(200).json({success: true , message: 'the User is deleted'})
+    } else {
+      return res.status(404).json({success:true ,message: 'User not found'})
+    }
+  }).catch(err=>{
+    return res.status(500).json({success:false, error: err})
+  })
+ 
+});
+
+
+ 
+    
+ 
 router.get('/home',authenticate,async(req,res)=> {
   try {
     console.log('-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=--==-=----------------- hello');

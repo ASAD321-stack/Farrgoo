@@ -10,6 +10,7 @@ import Ads from './components/ads';
 import HomePage from './components/home';
 import MyRide from './components/myRide';
 import RideDetails from './components/rideDetails';
+import Home1 from "./components/home1";
 
 
 import {
@@ -22,9 +23,11 @@ import {
 function App() {
   return (
    <Router>
+    {/* <Home1/> */}
      <Routes>
-     
-            <Route path="/" exact element={<HomePage/>}/>
+         
+
+            <Route path="/" exact element={<Home1/>}/>
             <Route path="/login" exact element={<Login/>}/>
             <Route path ="/SignUp" exact element={<Signup/>}/>
             <Route path ="/addFlight" exact element={<RideDetails/>}/>
@@ -42,6 +45,8 @@ function App() {
 
     </Routes>
     </Router>
+  
+
   );
 }
 
