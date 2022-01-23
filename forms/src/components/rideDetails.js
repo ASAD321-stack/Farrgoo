@@ -11,9 +11,8 @@ import HomePage from "./home"
 
 const RideDetails = () => {
     const navigate = useNavigate();
-
     const [user, setUser] = useState({
-        userName: "", departure: "", destination: "", date: "", time: "", number: "", registration: "", meetupPoint: "", charges: ""
+         departure: "", destination: "", date: "", time: "", number: "", registration: "", meetupPoint: "", charges: ""
     });
     let name, value;
     const handleInputs = (e) => {
@@ -51,14 +50,14 @@ const RideDetails = () => {
     });
     const PostData = async (e) => {
         e.preventDefault();
-        const { userName, departure, destination, date, time, number, registration, meetupPoint, charges } = user;
+        const {  departure, destination, date, time, number, registration, meetupPoint, charges } = user;
         const res = await fetch('/rideDetails', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                userName, departure, destination, date, time, number, registration, meetupPoint, charges
+                 departure, destination, date, time, number, registration, meetupPoint, charges
 
             })
         });
@@ -76,7 +75,7 @@ const RideDetails = () => {
 
     return (
         <div className="header">
-            <HomePage />
+        <HomePage/>
 
             <div className=" body d-flex justify-content-center  align-content-center h-100">
                 <div className="card card-upload" >
@@ -87,23 +86,7 @@ const RideDetails = () => {
                         <form method="POST">
                             <div className="feilds">
                                 <div className="input-group form-group">
-                                   
-                                    <input type="text" name="userName" id="userName" className="form-control" placeholder="username" required
-                                        value={user.userName}
-                                        onChange={handleInputs}>
-                                    </input>
-
-                               
-                                </div>
-                            </div>
-
-                            <div className="feilds">
-                                <div className="input-group form-group">
-                               
-                                    {/* <input type="text" name="departure" id="departure" className="form-control" placeholder="Departure" required
-                                        value={user.departure}
-                                        onChange={handleInputs}>
-                                    </input> */}
+                             
                                     <select name = "departure"  className="form-control"  placeholder="Departure" value={user.departure} onChange={handleInputs}>
                                         <option value="">From</option>
                                         <option value="Pakistan">Pakistan</option>
@@ -113,7 +96,6 @@ const RideDetails = () => {
                                         <option value="Dubai">Dubai</option>
                                         <option value="Canada">Canada</option>
                                         <option value="Afganistan">Afganistan</option>
-                                        {/* <option value="Spain">Spain</option> */}
                                     </select>
                                 </div>
                             </div>

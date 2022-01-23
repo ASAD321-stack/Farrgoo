@@ -1,18 +1,32 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 import { Navbar, Dropdown } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import Home0 from "./home0"
 
 import './login-.css';
 
 
 const Login = () => {
 	const navigate = useNavigate();
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
+
+	const [user, setUser] = useState({
+		email: "", password: ""
+	});
+	const [formError, setFormError] = useState({});
+	const [isSubmit, setIsSubmit] = useState(false);
+
+	let name, value;
+	const handleInputs = (e) => {
+		name = e.target.name;
+		value = e.target.value;
+
+		setUser({ ...user, [name]: value })
+	}
 
 	const loginUser = async (e) => {
+		const { email, password } = user
 		e.preventDefault();
 		const res = await fetch('/login', {
 			method: "POST",
@@ -25,21 +39,49 @@ const Login = () => {
 			})
 		});
 
-		const data = await res.json();
-		console.log(data);
-
-		if (res.status === 400 || !data) {
-		  console.log("Invalid Credentials");
+		setFormError(validate(user));
+		setIsSubmit(true);
+		res.json();
+		console.log(' catching error');
+		console.log(res.status);
+		if (res.status === 400) {
+			window.alert("Invalid Credentials");
+		}
+		else if(res.status=== 422)
+		{
+		
 		}
 		else {
-			console.log("login SuccessFully");
-			navigate('/');
+			window.alert("login SuccessFully");
+			navigate('/home');
 		}
+	}
+
+	useEffect(() => {
+		console.log(formError);
+		if (Object.keys(formError).length === 0 && isSubmit) {
+			console.log(user);
+		}
+	}, [formError]);
+	const validate = (values) => {
+		const errors = {};
+		const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		if (!values.email) {
+			errors.email = "Email is required";
+		} else if (!regex.test(values.email)) {
+			errors.email = "Not a valid Email";
+		}
+		if (!values.password) {
+			errors.password = "Password is required";
+		}
+		return errors;
 	}
 
 
 
 	return (
+<>
+<Home0/>
 		<div className="hub">
 			<section id="form-3">
 				<div className="container ">
@@ -57,19 +99,20 @@ const Login = () => {
 								<div className="form-group">
 									<label for="Email">Email</label>
 									<input type="email" name="email" id="email" className="form-control"
-										value={email}
-										onChange={(e) => setEmail(e.target.value)}
+								        	value={user.email}
+											onChange={handleInputs}
 										placeholder="email"
 										required></input>
 								</div>
 								<div className="form-group">
 									<label for="password">Password</label>
 									<input type="password" name="password" id="password" className="form-control"
-										value={password}
-										onChange={(e) => setPassword(e.target.value)}
+										value={user.password}
+										onChange={handleInputs} 
 										placeholder="password"
 										required></input>
 								</div>
+								<div className="error">{formError.password}</div>
 								<div className="feilds">
 									<div className="form-group">
 										<input type="submit" value="Login"
@@ -81,9 +124,6 @@ const Login = () => {
 									<div className="d-flex justify-content-center links">
 										Don't have an account?<Link to="/SignUp">Sign Up</Link>
 									</div>
-									<div className="d-flex justify-content-center">
-										<a href="#">Forgot your password?</a>
-									</div>
 								</div>
 
 							</form>
@@ -94,6 +134,7 @@ const Login = () => {
 			</section>
 
 		</div>
+</>
 	)
 }
 

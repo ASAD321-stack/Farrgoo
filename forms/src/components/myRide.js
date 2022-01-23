@@ -10,6 +10,7 @@ import "./service.css"
 const MyRide = () => {
     const navigate = useNavigate();
     const [ads, getAds] = useState([]);
+    const PF = "http://localhost:5000/images/"
     // const [search, setSearch] = useState('');
     // const [searcha, setSearcha] = useState('');
     const getUser = async () => {
@@ -39,11 +40,19 @@ const MyRide = () => {
         }
     }
 
+    const upDateRide = async (id) => {
+        try {
+            await axios.put(`/update/${id}`, {
+
+            });
+        } catch (err) { }
+    };
+
     const deleteRide = async (id) => {
         axios.delete(`/delete/${id}`).then(() => {
             getUser(
-                ads.filter((item) => {
-                    return item._id !== id;
+                ads.filter((element) => {
+                    return element._id !== id;
                 })
             )
         })
@@ -53,63 +62,87 @@ const MyRide = () => {
     useEffect(() => {
         getUser();
         deleteRide();
-    },[]);
+    }, []);
 
 
     return (
-        <div className="App">
+        <div className="header">
             <HomePage />
-            <h1>Your Posted Flights</h1>
-            {ads.map((item) =>
-                <div key={item.id}>
-                    <div className=" card p-2">
-                        {/* <div className="d-flex align-items-center"> */}
-                        {/* <div className="ml-3 w-100"> */}
-                        {/* <h4 className=" btn-success mb-0 mt-0">{item.loginName}</h4> */}
-                        <div>{item.detials.map((d) =>
+            <div className="px-5">
+                <h1>Your Posted Flights</h1>
+                {ads.map((element) =>
+                    <div className="col-12 col-md-5" key={element.id}>
+                        <h4>{element.loginName}</h4>
+                        <img className="adsImage" src={PF + element.image} onError={({ currentTarget }) => {
+                                        currentTarget.onerror = null; // prevents looping
+                                        currentTarget.src = "https://www.seekpng.com/png/detail/966-9665317_placeholder-image-person-jpg.png"
+                                    }} width="80" height="90" />
+                      
+                        <div className=" back">
+                       
+                            <section class=" services" id="services">
+                                <div className="box row">
+                                   
+                                    <div className="col-md-6">
+                                        <h5>Departure:<span>{element.departure}</span></h5>
+                                        <h5>Destination:<span>{element.destination}</span></h5>
 
-                            <div className="back">
-                                <section class="services" id="services">
-                                    <div className="box row">
-                                        <div className="col-md-4">
-                                            <h5>Departure:<span>{d.departure}</span></h5>
-                                            <h5>Destination:<span>{d.destination}</span></h5>
-                                            <h5>Arrival Date:<span>{d.date}</span></h5>
-                                        </div>
-                                        <div className="col-md-4">
-                                            <h5>Contact Number : <span>{d.number}</span></h5>
-                                            <h5>MeetupPoint :<span>{d.meetupPoint}</span></h5>
-                                            <h5>Registration: <span>{d.registration}</span></h5>
-                                        </div>
-                                        <div className="col-md-4">
-                                            <h5>MeetingTime : <span>{d.time}</span></h5>
-                                            <h5>Charges : <span>{d.charges}</span></h5>
-                                            {/* <h5>Destination : <span>{d.destination}</span></h5> */}
-                                        </div>
-                                        <div className="button align-items-center"><button className="btn btn-sm btn-success w-100 ml-2"
-                                            onClick={() => {
-                                                deleteRide(item._id);
-                                            }}
-                                             >Delete</button> </div>
+                                    </div>
+                                    <div className="col-md-6">
+
+                                        <h5>MeetupPoint :<span>{element.meetupPoint}</span></h5>
+                                        <h5>Registration: <span>{element.registration}</span></h5>
 
 
+                                    </div>
+                                    <div className="col-md-6">
+                                        <h5>MeetingTime : <span>{element.time}</span></h5>
+                                        <h5>Charges : <span>{element.charges}</span></h5>
+                                        {/* <h5>Destination : <span>{d.destination}</span></h5> */}
+                                    </div>
+
+                                    <div className="col-md-6">
+                                        <h5>Arrival Date:<span>{element.date}</span></h5>
+                                        <h5>Contact Number : <span>{element.number}</span></h5>
+                                    </div>
+
+
+                                    {/* <button className="button12 btn btn-sm btn-danger w-100 ml-2" onClick={() => {
+                                 navigate("/update/" + element._id )
+                             }}>Edit</button> */}
+                                    <div className="button align-items-center"><button className="btn btn-sm btn-success w-70 ml-2"
+                                        onClick={() => {
+                                            deleteRide(element._id);
+                                        }}
+                                    >Delete</button>
+                                        <button className="btn btn-sm btn-danger w-70 ml-2" onClick={() => {
+                                            navigate("/update/" + element._id)
+                                        }}>Edit</button>
 
 
                                     </div>
 
 
-                                </section>
-
-                            </div>
-
-                        )}</div>
 
 
+
+                                </div>
+
+
+                            </section>
+
+                        </div>
+
+
+
+                        {/* </div> */}
                         {/* </div> */}
                         {/* </div> */}
                     </div>
-                </div>
-            )}
+
+                )}
+            </div>
+
         </div>
     )
 }

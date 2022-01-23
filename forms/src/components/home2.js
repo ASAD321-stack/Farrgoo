@@ -1,26 +1,27 @@
 import React from 'react'
-import HomePage from './home'
-import "./STYLES.css"
+import Home0 from './home0'
 import { Link } from "react-router-dom";
 
-const Home1 = () => {
+import "./STYLES.css"
+const Home2 = () => {
     return (
 
         <div>
-            <HomePage/>
+            <Home0/>
             <section className="aboutme">
                 <div>
                     <div className="row" style={{ "backgroundColor": "white" }}>
                         <div className=" col-lg-6  col-sm-12 ">
                             <p className="para">Hello there. . .</p>
                             <h1 className="banner-h">
-                                Farrgo!
+                                 Farrgo!
                             </h1>
                             <h3 className="para-2"> You can book a<span className="deve"> Person |</span></h3>
                             <p className="para-3">The namics of how  users interact with interactive elements within a users
                                 interface flowchart based on container proportion</p>
-                      <Link to='/ads'><button className="btn btn-1">Flights</button></Link> 
-                      <Link to='/addFlight'><button className="btn btn-2">Post</button></Link> 
+                                <Link to="/SignUp">  <button className="btn btn-1">SignUp</button></Link>  
+                                <Link to="/login">  <button className="btn btn-2">Login</button></Link> 
+                           
                         </div>
                         <div className=" column col-lg-6 col-sm-0">
                             <img className="img-1" src="/fargo.jpg" />
@@ -54,7 +55,7 @@ const Home1 = () => {
 
                                 </div>
                                 <div className="col-lg-6  ">
-                                    <pre>lorem     |lorem </pre>
+                                    <pre>lorem     | lorem </pre>
                                     <pre>lorem     | lorem</pre>
 
                                 </div>
@@ -76,7 +77,7 @@ const Home1 = () => {
                     </h1>
                     <p className="para-3"> App that makes your life easier </p>
                     <div className="row ro1 service-content">
-                        <div className="col-lg-6">
+                        <div className="col-lg-3">
                             <div className="box1">
                                 <h5>Travelling</h5>
                                 <p>Make your Travelling easy and make you earn money out of it.
@@ -106,7 +107,7 @@ const Home1 = () => {
                             </div>
 
                         </div>
-                        <div className="col-lg-12">
+                        <div className="col-lg-3">
                             <div className="box1">
                                 <h5>Saves time</h5>
                                 <p> This app helps you to get packages in shortest time span
@@ -207,4 +208,4 @@ const Home1 = () => {
     )
 }
 
-export default Home1
+export default Home2;

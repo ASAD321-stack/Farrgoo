@@ -9,7 +9,9 @@ import "./search.css"
 
 const Ads = () => {
     const navigate = useNavigate();
+    const PF = "http://localhost:5000/images/"
     const [ads, getAds] = useState([]);
+    const [text, setText] = useState(false);
     const [search, setSearch] = useState('');
     const [searcha, setSearcha] = useState('');
 
@@ -28,7 +30,9 @@ const Ads = () => {
 
             const data = response.body;
             console.log("=============ads");
-            console.log(data);
+            setText(true);
+            
+            console.log(data.image);
 
             if (response.status !== 200) {
                 const error = new Error(response.error);
@@ -39,9 +43,36 @@ const Ads = () => {
             navigate('/login');
         }
     }
+
+    const request = async (id) => {
+        const response = await fetch(`/request/${id}`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              
+            })
+        });
+        console.log(response.status);
+        if (response.status === 200 || !response) {
+            window.alert("Request Sent");
+            setText(true);
+
+        }
+
+        else if (response.status === 208) {
+            window.alert("Already Sent");
+        }
+        else if (response.status === 400) {
+            window.alert("you can send request to himself");
+        }
+    }
     useEffect(() => {
         getUser();
+        request();
     }, []);
+ 
     return (
         <div>
             <HomePage />
@@ -69,29 +100,40 @@ const Ads = () => {
                         }
                     }).map((element) => {
                         return (
-                            <div key={element.id}>
-                                <div className="card p-3">
-                                    <div className="ml-3 w-100">
-                                        <h3 className="mb-0 mt-0 ">{element.userName.toUpperCase()}</h3>
+                            <div className=" col-12 col-md-12" key={element.id}>
+                                <div className="px-3">
+                                <img className="adsImage" src={PF + element.image} onError={({ currentTarget }) => {
+                                                    currentTarget.onerror = null; // prevents looping
+                                                    currentTarget.src = "https://www.seekpng.com/png/detail/966-9665317_placeholder-image-person-jpg.png"
+                                                }} width="80" height="80" />
+                                        <h3 className="mb-0 mt-0 ">{element.loginName}</h3>
                                         <div className="back">
                                             <section class="services" id="services">
                                                 <div className="box row ">
                                                     <div className="col-md-4 ">
-                                                        <h5>Departure:<span>{element.departure}</span></h5>
+                                                        <h5>Departure :<span>{element.departure}</span></h5>
                                                         <h5>Destination:<span>{element.destination}</span></h5>
-                                                        <h5>Arrival Date:<span>{element.date}</span></h5>
                                                     </div>
                                                     <div className="col-md-4">
                                                         <h5>Contact Number : <span>{element.number}</span></h5>
                                                         <h5>MeetupPoint :<span>{element.meetupPoint}</span></h5>
-                                                        <h5>Registration: <span>{element.registration}</span></h5>
+                                                       
                                                     </div>
                                                     <div className="col-md-4">
                                                         <h5>MeetingTime : <span>{element.time}</span></h5>
                                                         <h5>Charges : <span>{element.charges}</span></h5>
                                                         {/* <h5>Destination : <span>{d.destination}</span></h5> */}
                                                     </div>
-                                                    <div className="button mt-2 d-flex flex-row align-items-center"><button className="btn btn-sm btn-success w-100 ml-3">Request</button> </div>
+                                                    <div className="col-md-6">
+                                                        <h5>Registration: <span>{element.registration}</span></h5>    
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                         <h5>Arrival Date:<span>{element.date}</span></h5>
+                                                    </div>
+                                                    <div className=""><button className="btn btn-sm btn-success w-100 ml-2" onClick={() => {
+                                                        request(element._id);
+                                                    }}>Request</button> </div>
+
 
 
                                                 </div>
@@ -100,7 +142,6 @@ const Ads = () => {
 
 
                                         </div>
-                                    </div>
                                 </div>
                             </div>
                         )
